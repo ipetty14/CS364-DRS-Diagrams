@@ -8,9 +8,9 @@ skinparam classAttributeIconSize 0
 ' The reporting deadline is the last day of the month.        '
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 class ReportingDeadline {
-    -Day day
-    -Month month
-    -Year year
+    -day : Day
+    -month : Month
+    -year : Year
 }
 
 @enduml
