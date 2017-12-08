@@ -1,0 +1,16 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class ReportToLeadership  {
+    -numAssignedTeechees : int
+    -numTeachers : int
+    -numVisits : int
+    -numUnAssignedTeachees : int
+    -visitsPerAssignedTeachees : int
+    -assignedTeacheesPerTeacher : int
+    +calcVistPerAssign(numAssignedTeechees, numVisits) : int
+    +calcAssignedPerTeacher(numUnAssignedTeachees, numTeachers) : int
+}
+
+@enduml
