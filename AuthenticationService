@@ -16,11 +16,11 @@ class AuthenticationService {
 ' To provide secure access to the web app by requiring users to      '
 ' establish a password that must be presented during authentication. '
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-class LdsDotOrgAuthenticationProvidor {
+class LdsDotOrgAuthenticationProvider {
     {static} -authenticateWithLdsDotOrg(User user, string password) : bool
     {static} ~authenticate(User user, string password) : bool
 }
 
-AuthenticationService *-- LdsDotOrgAuthenticationProvidor
+AuthenticationService *-- LdsDotOrgAuthenticationProvider
 
 @enduml
