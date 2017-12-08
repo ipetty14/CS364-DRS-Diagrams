@@ -21,10 +21,9 @@ class ChatArea {
     -recipients: List<User>
     -currentMessage: chatMessage
     -isSent: bool
-    +deleteMessages(): void
-    +clearHistory(): void
-    +archiveMessages(): void
-    +sendMessage(): bool
+    +deleteMessages(Array<chatMessage>): void
+    +archiveMessages(Array<chatMessage>): void
+    +sendMessage(chatMessage, List<User>): bool
     +retrieveMessage(): string
     +notifyUser(): Notification
 }
