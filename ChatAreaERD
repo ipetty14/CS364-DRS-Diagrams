@@ -19,11 +19,11 @@ class Messages {
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 class ChatArea {
     -recipients: List<User>
-    -currentMessage: chatMessage
+    -currentMessage: ChatMessage
     -isSent: bool
-    +deleteMessages(Array<chatMessage>): void
-    +archiveMessages(Array<chatMessage>): void
-    +sendMessage(chatMessage, List<User>): bool
+    +deleteMessages(Array<ChatMessage>): void
+    +archiveMessages(Array<ChatMessage>): void
+    +sendMessage(ChatMessage, List<User>): bool
     +retrieveMessage(): string
     +notifyUser(): Notification
 }
@@ -33,7 +33,7 @@ class ChatArea {
 ' To allow users to view previous chat messages in which they were a participant. '
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 class ChatHistory {
-    -chatMessages: List<chatMessage>
+    -chatMessages: List<ChatMessage>
 }
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
