@@ -6,7 +6,7 @@ actor User
 boundary GUI
 entity UserObject
 entity AuthenticationService
-entity LdsDotOrgAuthenticationProvidor
+entity LdsDotOrgAuthenticationProvider
 boundary Lds.org
 
 User -> GUI : Login
@@ -16,13 +16,13 @@ UserObject -> GUI : Return User Object
 GUI -> UserObject : isAuthenticated()
 UserObject -> AuthenticationService : authenticate()
 activate AuthenticationService
-AuthenticationService -> LdsDotOrgAuthenticationProvidor : authenticate()
-activate LdsDotOrgAuthenticationProvidor
-LdsDotOrgAuthenticationProvidor -> LdsDotOrgAuthenticationProvidor : authenticateWithLdsDotOrg()
-LdsDotOrgAuthenticationProvidor -> Lds.org : Authentication Request
-Lds.org -> LdsDotOrgAuthenticationProvidor : Authentication Response
-AuthenticationService <- LdsDotOrgAuthenticationProvidor : true or false
-deactivate LdsDotOrgAuthenticationProvidor
+AuthenticationService -> LdsDotOrgAuthenticationProvider : authenticate()
+activate LdsDotOrgAuthenticationProvider
+LdsDotOrgAuthenticationProvider -> LdsDotOrgAuthenticationProvider : authenticateWithLdsDotOrg()
+LdsDotOrgAuthenticationProvider -> Lds.org : Authentication Request
+Lds.org -> LdsDotOrgAuthenticationProvider : Authentication Response
+AuthenticationService <- LdsDotOrgAuthenticationProvider : true or false
+deactivate LdsDotOrgAuthenticationProvider
 UserObject <- AuthenticationService : true or false
 deactivate AuthenticationService
 GUI <- UserObject : true or false
@@ -32,12 +32,12 @@ alt true
     GUI <- UserObject : true or false
     deactivate UserObject
     alt User has Two Factor Authenticaton
-        User <- GUI : Challange Request 
-        User -> GUI : Challange Response
-        alt Challange Success
+        User <- GUI : Challenge Request 
+        User -> GUI : Challenge Response
+        alt Challenge Success
             GUI <- GUI : Success Result
-        else Challange Failed
-            User <- GUI : Challange Failure Result
+        else Challenge Failed
+            User <- GUI : Challenge Failure Result
         end
     end
     User <- GUI : Success Result
